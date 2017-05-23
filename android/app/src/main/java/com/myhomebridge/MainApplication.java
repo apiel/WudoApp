@@ -1,42 +1,36 @@
 package com.Wudo;
 
-import android.app.Application;
-import android.util.Log;
+import android.support.annotation.Nullable;
 
-import com.facebook.react.ReactApplication;
-import com.facebook.react.ReactInstanceManager;
-import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
-import com.facebook.soloader.SoLoader;
+import com.facebook.react.ReactApplication;
+import com.reactnativenavigation.NavigationApplication;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Arrays;
 
-public class MainApplication extends Application implements ReactApplication {
+public class MainApplication extends NavigationApplication implements ReactApplication {
+     public boolean getUseDeveloperSupport() {
+         return BuildConfig.DEBUG;
+     }       
 
-  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-    @Override
-    public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
-    }
+     public boolean isDebug() {
+         // Make sure you are using BuildConfig from your own application
+         return BuildConfig.DEBUG;
+     }  
 
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
-      );
-    }
-  };
+    //  @Override
+     protected List<ReactPackage> getPackages() {
+         // Add additional packages you require here
+         // No need to add RnnPackage and MainReactPackage
+         return Arrays.<ReactPackage>asList(
+             // eg. new VectorIconsPackage()
+         );
+     }
 
-  @Override
-  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
-  }
+     @Override
+     @Nullable
+     public List<ReactPackage> createAdditionalReactPackages() {
+         return getPackages();
+     }      
 }

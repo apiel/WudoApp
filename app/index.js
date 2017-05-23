@@ -3,48 +3,20 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { StyleSheet, AppRegistry } from 'react-native';
+import { Navigation } from 'react-native-navigation';
 
-import { Container, Header, Content,
-         Title, Button, Left, Text,
-         Right, Body, Icon } from 'native-base';
+import Activities from './activities';
 
-export default class Wudo extends Component {
-    styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            marginLeft: 10,
-            marginRight: 10,
-            alignItems: 'stretch',
-            justifyContent: 'center',
+Navigation.registerComponent('activities', () => Activities);
+
+// start the app
+Navigation.startTabBasedApp({
+    tabs: [
+        {
+            label: 'Activities',
+            screen: 'activities',
+            title: 'Activities',
+            icon: require('../img/list.png'), // eslint-disable-line
         },
-    });
-
-    render() {
-        return (
-            <Container>
-                <Header>
-                    <Left>
-                        <Button transparent>
-                            <Icon name="menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>Wudo</Title>
-                    </Body>
-                    <Right>
-                        <Button transparent>
-                            <Icon name="settings" />
-                        </Button>
-                    </Right>
-                </Header>
-                <Content>
-                    <Text>Yoyo</Text>
-                </Content>
-            </Container>
-        );
-    }
-}
-
-AppRegistry.registerComponent('Wudo', () => Wudo);
+    ],
+});
