@@ -11,6 +11,7 @@ import AddActivity from './addActivity';
 import Followers from './followers';
 import Friends from './friends';
 import Feeds from './feeds';
+import FeedDetails from './feedDetails';
 import Profile from './profile';
 
 Navigation.registerComponent('activities', () => Activities);
@@ -19,6 +20,7 @@ Navigation.registerComponent('addActivity', () => AddActivity);
 Navigation.registerComponent('followers', () => Followers);
 Navigation.registerComponent('friends', () => Friends);
 Navigation.registerComponent('feeds', () => Feeds);
+Navigation.registerComponent('feedDetails', () => FeedDetails);
 Navigation.registerComponent('profile', () => Profile);
 
 // start the app

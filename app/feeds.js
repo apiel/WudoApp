@@ -6,6 +6,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, ListItem, Right, Body, Button, Container,
             Left, Thumbnail } from 'native-base';
+import { TouchableOpacity } from 'react-native';
 import moment from 'moment';
 
 import data from '../__mock__/data';
@@ -61,11 +62,13 @@ export default class extends Component {
                             <Thumbnail source={require('../img/avatars/0.png')} />
                         </Left>
                         <Body>
-                            <Text>{this.getActivity(id).name}</Text>
-                            <Text note>
-                                {this.getFriend(id).name}
-                            </Text>
-                            <Text note>{this.getDateTime(id)}</Text>
+                            <TouchableOpacity onPress={() => this.showDetails()}>
+                                <Text>{this.getActivity(id).name}</Text>
+                                <Text note>
+                                    {this.getFriend(id).name}
+                                </Text>
+                                <Text note>{this.getDateTime(id)}</Text>
+                            </TouchableOpacity>
                         </Body>
                         <Right>
                             <Button rounded info onPress={() => this.joinActivity()}>
