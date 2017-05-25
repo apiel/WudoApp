@@ -37,7 +37,6 @@ export default class extends Component {
         } });
 
     render() {
-        console.log('getFollowers()', this.getFollowers());
         return (
             <View style={this.styles.container}>
                 <Card>
