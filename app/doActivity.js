@@ -4,24 +4,47 @@
  */
 
 import React, { Component } from 'react';
-
-import { Text, Card, CardItem, Body, Container } from 'native-base';
+import { AutoGrowingTextInput } from 'react-native-autogrow-textinput';
+import { Text, Card, CardItem, Body, Container, Button, Right, Icon } from 'native-base';
+import { StyleSheet, View, Dimensions } from 'react-native';
 
 export default class extends Component {
+    styles = StyleSheet.create({
+        container: {
+            width: Dimensions.get('window').width,
+            height: Dimensions.get('window').height,
+            backgroundColor: '#FFFFFF00',
+            padding: 10,
+            paddingBottom: Dimensions.get('window').height * 0.5,
+        } });
+
     render() {
         // height: Dimensions.get('window').height * 0.3,
         return (
-            <Container style={{ padding: 10 }}>
+            <View style={this.styles.container}>
                 <Card>
-                    <CardItem>
+                    <CardItem header>
+                        <Text>Do acitivity</Text>
+                        <Right>
+                            <Button info transparent>
+                                <Icon name="close" />
+                            </Button>
+                        </Right>
+                    </CardItem>
+                    <CardItem style={{ flex: 1 }}>
                         <Body>
-                            <Text>
-                                Do acitivity
-                            </Text>
+                            <AutoGrowingTextInput placeholder={'Put some details...'} />
+                        </Body>
+                    </CardItem>
+                    <CardItem footer>
+                        <Body>
+                            <Button block info>
+                                <Text>Do</Text>
+                            </Button>
                         </Body>
                     </CardItem>
                 </Card>
-            </Container>
+            </View>
         );
     }
 }
