@@ -4,8 +4,8 @@
  */
 
 import React, { Component } from 'react';
-import { AutoGrowingTextInput } from 'react-native-autogrow-textinput';
-import { Text, Card, CardItem, Body, Button, Right, Icon } from 'native-base';
+import { Text, Card, CardItem, Body, Button, Right, Icon,
+            Form, Item, Input, Label } from 'native-base';
 import { StyleSheet, View, Dimensions } from 'react-native';
 
 export default class extends Component {
@@ -19,12 +19,11 @@ export default class extends Component {
         } });
 
     render() {
-        // height: Dimensions.get('window').height * 0.3,
         return (
             <View style={this.styles.container}>
                 <Card>
                     <CardItem header>
-                        <Text>Climbing</Text>
+                        <Text>Add activity</Text>
                         <Right>
                             <Button info transparent>
                                 <Icon name="close" />
@@ -33,13 +32,18 @@ export default class extends Component {
                     </CardItem>
                     <CardItem style={{ flex: 1 }}>
                         <Body>
-                            <AutoGrowingTextInput placeholder={'Put some details...'} />
+                            <Form>
+                                <Item stackedLabel>
+                                    <Label>Acitivty name</Label>
+                                    <Input />
+                                </Item>
+                            </Form>
                         </Body>
                     </CardItem>
                     <CardItem footer>
                         <Body>
                             <Button block info>
-                                <Text>Do</Text>
+                                <Text>Add</Text>
                             </Button>
                         </Body>
                     </CardItem>

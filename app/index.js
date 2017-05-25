@@ -7,12 +7,16 @@ import { Navigation } from 'react-native-navigation';
 
 import Activities from './activities';
 import DoActivity from './doActivity';
+import AddActivity from './addActivity';
+import Followers from './followers';
 import Friends from './friends';
 import Feeds from './feeds';
 import Profile from './profile';
 
 Navigation.registerComponent('activities', () => Activities);
 Navigation.registerComponent('doActivity', () => DoActivity);
+Navigation.registerComponent('addActivity', () => AddActivity);
+Navigation.registerComponent('followers', () => Followers);
 Navigation.registerComponent('friends', () => Friends);
 Navigation.registerComponent('feeds', () => Feeds);
 Navigation.registerComponent('profile', () => Profile);
@@ -43,6 +47,6 @@ Navigation.startTabBasedApp({
             screen: 'profile',
             title: 'Profile',
             icon: require('../img/list.png'), // eslint-disable-line
-        },                        
+        },
     ],
 });
