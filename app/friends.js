@@ -3,14 +3,44 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Text, ListItem, Right, Body, Button, Container,
+            Left, Thumbnail } from 'native-base';
+import { TouchableOpacity } from 'react-native';
+import moment from 'moment';
 
-import { Text } from 'native-base';
+import data from '../__mock__/data';
 
 export default class extends Component {
+    static propTypes = {
+        navigator: PropTypes.object.isRequired, // eslint-disable-line
+    }
+
+    getFriendKeys(): string[] {
+        return Object.keys(data.friends);
+    }
+
+    getFriend(id: string): {} {
+        return data.friends[id];
+    }
+
     render() {
         return (
-            <Text>Yoyo</Text>
+            <Container>
+                { this.getFriendKeys().map(id =>
+                    (<ListItem key={id} avatar>
+                        <Left>
+                            <Thumbnail source={require('../img/avatars/0.png')} />
+                        </Left>
+                        <Body>
+                            <Text>
+                                {this.getFriend(id).name}
+                            </Text>
+                            <Text note>something</Text>
+                        </Body>
+                    </ListItem>))
+                }
+            </Container>
         );
     }
 }
