@@ -4,8 +4,8 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import { Text, ListItem, Right, Body, Button, Container,
-            Left, Thumbnail } from 'native-base';
+import { Text, ListItem, Right, Body, Container,
+            Left, Thumbnail, Icon } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import moment from 'moment';
 
@@ -38,6 +38,9 @@ export default class extends Component {
                             </Text>
                             <Text note>something</Text>
                         </Body>
+                        <Right>
+                            <Icon name="arrow-forward" />
+                        </Right>                        
                     </ListItem>))
                 }
             </Container>

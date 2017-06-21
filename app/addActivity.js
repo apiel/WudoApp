@@ -35,7 +35,7 @@ export default class extends Component {
                             <Form>
                                 <Item stackedLabel>
                                     <Label>Acitivty name</Label>
-                                    <Input />
+                                    <Input keyboardType="email-address" />
                                 </Item>
                             </Form>
                         </Body>
